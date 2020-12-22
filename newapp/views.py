@@ -109,6 +109,5 @@ def info(request):
     return render(request,'results.html',{"keys":key,'mark':marks,'detect':detected,'total':mark ,'kc':len(detected),'tc':len(key)})
 
 def getHistory(request):
-    #Getting history from db.
     previous_searches=history.objects.all()
     return render(request,'history.html',{"data":previous_searches})
