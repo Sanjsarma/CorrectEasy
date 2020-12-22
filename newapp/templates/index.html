@@ -25,6 +25,13 @@
           margin-top: 100px;
           padding: 1200px;
         }
+        input[type=submit] {
+          background-color: #f5a425 !important;
+          font-size: 20px !important;
+          }
+          .label-form {
+            color: white !important;
+          }
   </style>
 
 </head>
@@ -51,10 +58,11 @@
         <li><a href="https://templatemo.com" class="external">External</a></li>  -->
       </ul>
     </nav>
+
   </header>
   <section class="section contact"  >
     <div class="container" >
-    <div style = "  margin-top :10%;">
+    <div style = "  margin-top :10%; color: white;">
     <h1 style = "  color :white ;">Welcome to Handwriting Recognizer</h1>
     <h2></h2>
     <form action='/info/' method='post' class="form" enctype="multipart/form-data">
@@ -68,7 +76,7 @@
         <input type='file' name='pic' accept='img/*' id='pic' style="    opacity: 100%;" class="custom-file-input form-control">
         <br>
         <br>
-        <label for="marks">The Marks of the Question</label>
+        <label  class="form-label" for="customFile" ><b>The Marks of the Question<b></label>
         <br>
         <input type="number" id="marks" name="marks"><br>
          <br>
