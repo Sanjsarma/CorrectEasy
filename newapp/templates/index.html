@@ -61,11 +61,11 @@
         {% csrf_token %}
 
         <label  class="form-label" for="customFile" ><b>Please input the answer key for the question below  </b>  </label>
-         
+
         <input type='file' name='key' accept='img/*' id='pic' style="    opacity: 100%;"  class="custom-file-input form-control">
         <br>
-        <p><b> Please add the picture of the image</b> </p>
-        <input type='file' name='pic' accept='img/*' id='pic' style="    opacity: 100%;" class="custom-file-input">
+        <label  class="form-label" for="customFile" ><b> Please add the picture of the image</b></label>
+        <input type='file' name='pic' accept='img/*' id='pic' style="    opacity: 100%;" class="custom-file-input form-control">
         <br>
         <br>
         <label for="marks">The Marks of the Question</label>
@@ -73,7 +73,7 @@
         <input type="number" id="marks" name="marks"><br>
          <br>
          <br>
-        <input type='submit' class="button">
+        <input type='submit' class="button" bgcolor="orange">
     </form>
     <button type="button" onclick="location.href='/history'" class="button">History</button>
   </div>
