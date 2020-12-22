@@ -3,11 +3,27 @@ Result page of my image analyzing application.
 Author:Kshithij Iyer
 Email: ahole@disroot.org
 -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
     <title>Results</title>
+
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-grad-school.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/lightbox.css'%}">
+
     <style>
         .button {
             color: black;
@@ -60,29 +76,63 @@ Email: ahole@disroot.org
         .custom-file-input:active::before {
              background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
         }
+        .boxed {
+            border: 3px solid orange ;
+          }
     </style>
 </head>
-<body bgcolor="gray">
-    <h1>Welcome to Handwriting Recognizer</h1>
-    <h2></h2>
-    <button type="button" onclick="location.href='/history'" class="button">History</button> 
+<body style = "background-color: #172238;">
+
+    <header class="main-header clearfix" role="header">
+        <div class="logo">
+          <a href="{%url 'newapp:index' %}"><em>Correct</em> Easy</a>
+        </div>
+        <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
+        <nav id="menu" class="main-nav" role="navigation">
+          <ul class="main-menu">
+            <li><a href="{%url 'newapp:home' %}">Home</a></li>
+            <li class="has-submenu"><a href="{%url 'newapp:index' %}">About Us</a>
+              <ul class="sub-menu">
+                <li><a href="{%url 'newapp:index' %}">How it works?</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+    </header>
+
+    <section class="section contact"  >
+        <div class="container" >
+        <div style = "  margin-top :10%;">
+        <h1 style = "  color :white ;">Detected key points from the student's answer </h1>
+        <br>
+        <button type="button" onclick="location.href='/history'" class="button">History</button> 
+        <br><br>
+        <table>
+            <h1 style = "  color :white ;">Keys :</h1>
+        {% for key in keys %}
+            <tr>
+                <td style = "  color :white ;">{{key}}</td>
+            </tr>
+        {% endfor %}
+    </table>
     <table>
-        <h1>Keys :</h1>
-    {% for key in keys %}
+        <br>
+        <h1 style = "  color :white ;">Detected :</h1>
+        {% for d in detect %}
         <tr>
-            <td>{{key}}</td>
+            <td style = "  color :white ;">{{ d }}</td>
         </tr>
-    {% endfor %}
-</table>
-<table>
-    <h1>Detected :</h1>
-    {% for d in detect %}
-    <tr>
-        <td>{{ d }}</td>
-    </tr>
-    {% endfor %}
-</table>
-    <h1>Out of {{tc}} key words , {{kc}} is detected .</h1>
-    <h1>Our predicted marks is {{ mark }} out of {{ total }}. </h1>
+        {% endfor %}
+    </table>
+    <br>
+    <h1 style = "  color :white ;">Result :</h1>
+    <div class="boxed">
+        <h2 style = "  color :white ;"> Out of {{tc}} key words , {{kc}} is detected .</h2>
+        <h2 style = "  color :white ;"> Our predicted marks is {{ mark }} out of {{ total }}. </h2>
+    </div>
+        
+    </div>
+    </div>
+    </section>
 </body>
 </html>
