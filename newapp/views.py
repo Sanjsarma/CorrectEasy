@@ -16,7 +16,7 @@ def index(request):
 
 def info(request):
     #vision api code which also saves data to db.
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/Sanjana Sarma/Downloads/key.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/malav/Downloads/key.json"
     client = vision.ImageAnnotatorClient()
     myfile = request.FILES["key"]
     fs = FileSystemStorage()
@@ -102,13 +102,14 @@ def info(request):
             '{}\nFor more info on error messages, check: '
             'https://cloud.google.com/apis/design/errors'.format(
                 response.error.message))
-    record=history(rno= int(r),marks=marks,imageurl=file_name,name=name,clname=classs)
+    f='/media/'+myfile.name
+    record=history(rno= int(r),marks=marks,imageurl=f,name=name,clname=classs)
     record.save()
     print("Keys : \n", key)
     print("Words : \n",words)
     print("Marks : \n", marks)
     print("Detected : \n", detected)
-    f='/media/'+filename
+    
     print(f)
     return render(request,'results.html',{"keys":key,'mark':marks,'detect':detected,'total':mark ,'kc':len(detected),'tc':len(key),'file': f})
 
@@ -120,3 +121,11 @@ def getHistory(request):
     prev.tmarks=int(form.data['totmarks'])
     prev.save()
     return render(request,'history.html',{"data":previous_searches})
+
+def History(request):
+    previous_searches=history.objects.all()
+    return render(request,'finalhistory.html',{"data":previous_searches})
+
+def display(request):
+    previous_searches=history.objects.all()
+    return render(request,'marklist.html',{"data":previous_searches})
