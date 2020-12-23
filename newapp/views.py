@@ -16,7 +16,7 @@ def index(request):
 
 def info(request):
     #vision api code which also saves data to db.
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/malav/Downloads/key.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/malav/Downloads/key.json"
     client = vision.ImageAnnotatorClient()
     myfile = request.FILES["key"]
     fs = FileSystemStorage()
@@ -93,13 +93,14 @@ def info(request):
                    detected.append(j)
     Form = NameForm(request.POST)
     mark = int(Form.data['marks'])
+    r=int(Form.data['roll'])
     marks=int(len(detected)/len(key)*mark)
     if response.error.message:
         raise Exception(
             '{}\nFor more info on error messages, check: '
             'https://cloud.google.com/apis/design/errors'.format(
                 response.error.message))
-    record=history(url=file_name,data=words)
+    record=history(rno= int(r),marks=marks)
     record.save()
     print("Keys : \n", key)
     print("Words : \n",words)
