@@ -108,7 +108,7 @@ def info(request):
     print("Words : \n",words)
     print("Marks : \n", marks)
     print("Detected : \n", detected)
-    f=filename
+    f='/media/'+filename
     print(f)
     return render(request,'results.html',{"keys":key,'mark':marks,'detect':detected,'total':mark ,'kc':len(detected),'tc':len(key),'file': f})
 
