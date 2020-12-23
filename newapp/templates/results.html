@@ -91,11 +91,11 @@ Email: ahole@disroot.org
         <nav id="menu" class="main-nav" role="navigation">
           <ul class="main-menu">
             <li><a href="{%url 'newapp:home' %}">Home</a></li>
-            <li class="has-submenu"><a href="{%url 'newapp:index' %}">About Us</a>
+        <!--    <li class="has-submenu"><a href="{%url 'newapp:index' %}">About Us</a>
               <ul class="sub-menu">
                 <li><a href="{%url 'newapp:index' %}">How it works?</a></li>
               </ul>
-            </li>
+            </li> -->
           </ul>
         </nav>
     </header>
@@ -128,18 +128,18 @@ Email: ahole@disroot.org
     
             <h1 style = "  color :white ;">The answer :</h1>
             <img src = "{{ file }}"  style='width:128px;height:128px;' alt ="">
-         
-    <h1 style = "  color :white ;">Result :</h1>
-    <div class="boxed">
-        <h2 style = "  color :white ;"> Out of {{tc}} key words , {{kc}} is detected .</h2>
-        <h2 style = "  color :white ;"> Our predicted marks is {{ mark }} out of {{ total }}. </h2>
+     <p style="line-height: 2.0;"></p>   
+    <h1 style = "  color :white ; text-align: center;">Result :</h1>
+    <div class="boxed" style="background-color: black; width: 1000px; border: 15px solid orange; padding: 50px; margin: 20px;">
+        <h2 style = "  color :white ; text-align: center;"> Out of {{tc}} key words , {{kc}} are detected .</h2>
+        <h2 style = "  color :white ; text-align: center;"> Our predicted mark is {{ mark }} out of {{ total }}. </h2>
     </div>
     <form action='/history/' method='POST' class="form" enctype="multipart/form-data">
         {% csrf_token %}
-        <label  class="form-label" for="customFile" ><b>The Final Marks for the Question :<b></label>
-            <br>
-            <input type="number" id="totmarks" name="totmarks"><br>
-             <br>
+        <label  class="form-label" for="customFile" ><h3 style="font-size: 25px; text-align: center; color:white;"><b>The Final Marks for the Question :<b></h3></label>
+            
+            <input type="number" id="totmarks" name="totmarks" size="4"><br>
+             
              <br>
              <input type='submit' class="button" bgcolor="orange">
     </form>
