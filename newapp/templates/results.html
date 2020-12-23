@@ -25,7 +25,7 @@ Email: ahole@disroot.org
     <link rel="stylesheet" href="{% static 'assets/css/lightbox.css'%}">
 
     <style>
-        .button {
+        button {
             color: black;
             display: inline-block;
             background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
@@ -79,6 +79,12 @@ Email: ahole@disroot.org
         .boxed {
             border: 3px solid orange ;
           }
+        .column {
+            float: left;
+            width: 50%;
+            padding: 10px;
+            height: 300px; /* Should be removed. Only for demonstration */
+        }
     </style>
 </head>
 <body style = "background-color: #172238;">
@@ -107,25 +113,30 @@ Email: ahole@disroot.org
         <br>
         <button type="button" onclick="location.href='/history'" class="button">History</button> 
         <br><br>
-        <table>
-            <h1 style = "  color :white ;">Keys :</h1>
-        {% for key in keys %}
-            <tr>
-                <td style = "  color :white ;">{{key}}</td>
-            </tr>
-        {% endfor %}
-    </table>
-    <table>
+
+        <div class="row">
+            <div class="column" style="background-color:#aaa;">
+                <table>
+                    <h1 style = "  color :white ;">Keys entered:</h1>
+                {% for key in keys %}
+                    <tr>
+                        <td style = "  color :white ;">{{key}}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+            <div class="column" style="background-color:#bbb;">
+                <table>
+                    <h1 style = "  color :white ;">Detected :</h1>
+                    {% for d in detect %}
+                    <tr>
+                        <td style = "  color :white ;">{{ d }}</td>
+                    </tr>
+                    {% endfor %}
+                    </table>
+            </div>
+        </div> 
         <br>
-        <h1 style = "  color :white ;">Detected :</h1>
-        {% for d in detect %}
-        <tr>
-            <td style = "  color :white ;">{{ d }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <br>
-    
             <h1 style = "  color :white ;">The answer :</h1>
             <img src = "{{ file }}"  style='width:128px;height:128px;' alt ="">
          
