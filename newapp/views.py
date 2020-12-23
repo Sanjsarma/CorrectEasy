@@ -14,7 +14,7 @@ def home(request):
 def index(request):
     return render(request,'index.html')
 
-def info(request):
+def results(request):
     #vision api code which also saves data to db.
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/Sanjana Sarma/Downloads/key.json"
     client = vision.ImageAnnotatorClient()
