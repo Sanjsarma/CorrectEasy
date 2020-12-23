@@ -6,7 +6,7 @@ from django.core.files.base import ContentFile
 from django.shortcuts import render
 from google.cloud import vision
 from newapp.models import history
-from .forms import NameForm
+from .forms import NameForm,MarkForm
 
 # Create your views here.
 def home(request):
@@ -94,21 +94,29 @@ def info(request):
     Form = NameForm(request.POST)
     mark = int(Form.data['marks'])
     r=int(Form.data['roll'])
+    name=Form.data['name']
+    classs=Form.data['class']
     marks=int(len(detected)/len(key)*mark)
     if response.error.message:
         raise Exception(
             '{}\nFor more info on error messages, check: '
             'https://cloud.google.com/apis/design/errors'.format(
                 response.error.message))
-    record=history(rno= int(r),marks=marks)
+    record=history(rno= int(r),marks=marks,imageurl=file_name,name=name,clname=classs)
     record.save()
     print("Keys : \n", key)
     print("Words : \n",words)
     print("Marks : \n", marks)
     print("Detected : \n", detected)
-    print(len(key))
-    return render(request,'results.html',{"keys":key,'mark':marks,'detect':detected,'total':mark ,'kc':len(detected),'tc':len(key)})
+    f=filename
+    print(f)
+    return render(request,'results.html',{"keys":key,'mark':marks,'detect':detected,'total':mark ,'kc':len(detected),'tc':len(key),'file': f})
 
 def getHistory(request):
     previous_searches=history.objects.all()
+    prev=history.objects.all().last()
+    form = MarkForm(request.POST)
+    print(int(form.data['totmarks']))
+    prev.tmarks=int(form.data['totmarks'])
+    prev.save()
     return render(request,'history.html',{"data":previous_searches})
