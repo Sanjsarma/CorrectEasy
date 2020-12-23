@@ -63,15 +63,12 @@
       <section class="section contact"  >
         <div class="container" >
         <div style = "  margin-top :10%; color: white;">
-            <button type="button" onclick="location.href='/marklist'" class="button">Marklist</button>
     <table border="10">
         <tr>
             <th>Name </th>
             <th>Roll Number</th>
             <th>Class</th>
-            <th>Marks Given by teacher</th>
-            <th>Marks Predicted</th>
-            <th>Answer picture</th>
+            <th>Total Marks Given by teacher</th>
         </tr>
         {% for elements in data %}
         <tr>
@@ -79,8 +76,6 @@
             <td>{{elements.rno}}</td>
             <td>{{elements.clname}} </td>
             <td>{{elements.tmarks}}</td>
-            <td>{{elements.marks}}</td>
-            <td><img src = "{{ elements.imageurl }}"  style='width:128px;height:128px;' alt =""></td>
         </tr>
         {% endfor %}
     </table>
