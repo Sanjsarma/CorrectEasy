@@ -125,11 +125,24 @@ Email: ahole@disroot.org
         {% endfor %}
     </table>
     <br>
+    
+            <h1 style = "  color :white ;">The answer :</h1>
+            <img src = "{{ file }}"  style='width:128px;height:128px;' alt ="">
+         
     <h1 style = "  color :white ;">Result :</h1>
     <div class="boxed">
         <h2 style = "  color :white ;"> Out of {{tc}} key words , {{kc}} is detected .</h2>
         <h2 style = "  color :white ;"> Our predicted marks is {{ mark }} out of {{ total }}. </h2>
     </div>
+    <form action='/history/' method='POST' class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label  class="form-label" for="customFile" ><b>The Final Marks for the Question :<b></label>
+            <br>
+            <input type="number" id="totmarks" name="totmarks"><br>
+             <br>
+             <br>
+             <input type='submit' class="button" bgcolor="orange">
+    </form>
         
     </div>
     </div>
