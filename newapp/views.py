@@ -17,7 +17,7 @@ def index(request):
 def info(request):
     #vision api code which also saves data to db.
 
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/USER/Documents/Projects/CIS_Project/CorrectEasy/key.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/malav/Downloads/key.json"
 
     client = vision.ImageAnnotatorClient()
     myfile = request.FILES["key"]
