@@ -24,7 +24,27 @@ Email: ahole@disroot.org
     <link rel="stylesheet" href="{% static 'assets/css/owl.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/lightbox.css'%}">
 
-  <!--  <style>
+    <style>
+        button {
+            color: black;
+            display: inline-block;
+            background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+            border: 1px solid #999;
+            border-radius: 3px;
+            padding: 5px 8px;
+            outline: none;
+            white-space: nowrap;
+           -webkit-user-select: none;
+            cursor: pointer;
+            text-shadow: 1px 1px #fff;
+            font-weight: 700;
+            font-size: 10pt;
+        }
+        .button:active {
+            background-color: #3e8e41;
+             box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
 
         .custom-file-input {
             color: transparent;
@@ -152,6 +172,12 @@ Email: ahole@disroot.org
               width: 100%;
             }
           }
+        .column {
+            float: left;
+            width: 50%;
+            padding: 10px;
+            height: 300px; /* Should be removed. Only for demonstration */
+        }
     </style>
 </head>
 <body style = "background-color: #172238;">
@@ -180,24 +206,31 @@ Email: ahole@disroot.org
         <br>
         <button type="button" onclick="location.href='/finalhistory'" class="button">History</button>
         <br><br>
-        <table>
-            <h1 style = "  color :white ;">Keys :</h1>
-        {% for key in keys %}
-            <tr>
-                <td style = "  color :white ;">{{key}}</td>
-            </tr>
-        {% endfor %}
-    </table>
-    <table>
+
+        <div class="row">
+            <div class="column" style="background-color:#aaa;">
+                <table>
+                    <h1 style = "  color :white ;">Keys entered:</h1>
+                {% for key in keys %}
+                    <tr>
+                        <td style = "  color :white ;">{{key}}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+            <div class="column" style="background-color:#bbb;">
+                <table>
+                    <h1 style = "  color :white ;">Detected :</h1>
+                    {% for d in detect %}
+                    <tr>
+                        <td style = "  color :white ;">{{ d }}</td>
+                    </tr>
+                    {% endfor %}
+                    </table>
+            </div>
+        </div> 
         <br>
-        <h1 style = "  color :white ;">Detected :</h1>
-        {% for d in detect %}
-        <tr>
-            <td style = "  color :white ;">{{ d }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <br>
+
 
             <h1 style = "  color :white ;">The answer :</h1>
 

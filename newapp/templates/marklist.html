@@ -25,6 +25,23 @@
           margin-top: 100px;
           padding: 1200px;
         }
+
+        button {
+          color: white;
+          display: inline-block;
+          background: orange;/*-webkit-linear-gradient(top, #f9f9f9, #e3e3e3)*/
+          border: 1px solid #999;
+          border-radius: 3px;
+          padding: 5px 8px;
+          outline: none;
+          white-space: nowrap;
+         -webkit-user-select: none;
+          cursor: pointer;
+          width: 250px;
+          font-weight: 700;
+          font-size: 10pt;
+        }
+
         input[type=submit] {
           background-color: #f5a425 !important;
           font-size: 20px !important;
@@ -55,6 +72,15 @@
               background-color: black;
               color: white;
             }
+
+            .wrapper {
+              text-align: center;
+            }
+          
+            .button {
+              top: 50%;
+            }
+
   </style>
 
 </head>
@@ -84,14 +110,20 @@
 
       </header>
       <section class="section contact"  >
-        <div class="container" >
+
+        <div class="container" > 
         <div style = "  margin-top :10%; color: white;">
-    <table id="t01">
+          <div class="wrapper">
+          <button type="button" onclick="location.href='/index'" class="button" >Add new</button>
+          </div>
+          <br><br>
+    <table id="t01" align="center">
+
         <tr>
             <th style="width:30%">Name </th>
             <th style="width:10%">Roll Number</th>
             <th style="width:10%">Class</th>
-            <th style="width:30%">Total Marks Recieved </th>
+            <th style="width:30%">Total Marks Received </th>
             <th style="width:10%">Total Marks</th>
         </tr>
         {% for elements in data %}
