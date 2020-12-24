@@ -25,6 +25,7 @@
           margin-top: 100px;
           padding: 1200px;
         }
+
         button {
           color: white;
           display: inline-block;
@@ -40,6 +41,7 @@
           font-weight: 700;
           font-size: 10pt;
         }
+
         input[type=submit] {
           background-color: #f5a425 !important;
           font-size: 20px !important;
@@ -70,6 +72,7 @@
               background-color: black;
               color: white;
             }
+
             .wrapper {
               text-align: center;
             }
@@ -77,6 +80,7 @@
             .button {
               top: 50%;
             }
+
   </style>
 
 </head>
@@ -106,6 +110,7 @@
 
       </header>
       <section class="section contact"  >
+
         <div class="container" > 
         <div style = "  margin-top :10%; color: white;">
           <div class="wrapper">
@@ -113,18 +118,21 @@
           </div>
           <br><br>
     <table id="t01" align="center">
+
         <tr>
             <th style="width:30%">Name </th>
             <th style="width:10%">Roll Number</th>
             <th style="width:10%">Class</th>
-            <th style="width:30%">Total Marks Given by teacher</th>
+            <th style="width:30%">Total Marks Received </th>
+            <th style="width:10%">Total Marks</th>
         </tr>
         {% for elements in data %}
         <tr>
             <td>{{elements.name}}</td>
             <td>{{elements.rno}}</td>
             <td>{{elements.clname}} </td>
-            <td>{{elements.tmarks}}</td>
+            <td>{{elements.totmarks}}</td>
+            <td>{{elements.fullmarks}}</td>
         </tr>
         {% endfor %}
     </table>

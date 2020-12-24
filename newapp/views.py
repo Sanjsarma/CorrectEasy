@@ -5,7 +5,7 @@ from django.core.files.storage import Storage
 from django.core.files.base import ContentFile
 from django.shortcuts import render
 from google.cloud import vision
-from newapp.models import history
+from newapp.models import history,Totalmarks
 from .forms import NameForm,MarkForm
 
 # Create your views here.
@@ -17,6 +17,7 @@ def index(request):
 def info(request):
     #vision api code which also saves data to db.
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/Ardra Mohan/Downloads/key.json"
+
     client = vision.ImageAnnotatorClient()
     myfile = request.FILES["key"]
     fs = FileSystemStorage()
@@ -96,19 +97,29 @@ def info(request):
     r=int(Form.data['roll'])
     name=Form.data['name']
     classs=Form.data['class']
+    q=Form.data['qno']
     marks=int(len(detected)/len(key)*mark)
     if response.error.message:
         raise Exception(
             '{}\nFor more info on error messages, check: '
             'https://cloud.google.com/apis/design/errors'.format(
                 response.error.message))
-    record=history(rno= int(r),marks=marks,imageurl=file_name,name=name,clname=classs)
+    f='/media/'+myfile.name
+    request.session['rno']=r
+    request.session['clname']=classs
+    request.session['fullmarks']=mark
+    record=history(rno= int(r),marks=marks,imageurl=f,name=name,clname=classs,qno=q,totalmarks=mark)
     record.save()
+    try:
+       listing = Totalmarks.objects.get(rno=int(r),clname=classs)
+    except Totalmarks.DoesNotExist:
+       listing = Totalmarks(rno= int(r),name=name,clname=classs)
+       listing.save()
     print("Keys : \n", key)
     print("Words : \n",words)
     print("Marks : \n", marks)
     print("Detected : \n", detected)
-    f='/media/'+filename
+
     print(f)
     return render(request,'results.html',{"keys":key,'mark':marks,'detect':detected,'total':mark ,'kc':len(detected),'tc':len(key),'file': f})
 
@@ -119,4 +130,16 @@ def getHistory(request):
     print(int(form.data['totmarks']))
     prev.tmarks=int(form.data['totmarks'])
     prev.save()
+    listing = Totalmarks.objects.get(rno=request.session['rno'],clname=request.session['clname'])
+    listing.totmarks=listing.totmarks+int(form.data['totmarks'])
+    listing.fullmarks+=request.session['fullmarks']
+    listing.save()
     return render(request,'history.html',{"data":previous_searches})
+
+def History(request):
+    previous_searches=history.objects.all()
+    return render(request,'finalhistory.html',{"data":previous_searches})
+
+def display(request):
+    previous_searches=Totalmarks.objects.all()
+    return render(request,'marklist.html',{"data":previous_searches})
