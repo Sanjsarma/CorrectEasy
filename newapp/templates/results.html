@@ -34,6 +34,18 @@
             font-weight: 700;
             font-size: 10pt;  
         }
+        .container-one { 
+          position: relative; 
+        }
+        
+        .center {
+          margin: 0;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);}
+
         .button:active {
             background-color: #3e8e41;
              box-shadow: 0 5px #666;
@@ -73,8 +85,7 @@
         }
         .boxed {
             border: 3px solid orange ;
-          } 
-
+          }     
           input[type=submit] {
             background-color: #f5a425 !important;
             font-size: 20px !important;
@@ -168,6 +179,30 @@
             height: 300px; /* Should be removed. Only for demonstration */
             border-right: 1px solid black; 
         }
+        table {
+          width:75%;
+        }
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+          color: Black;
+
+        }
+        #t01 tr:nth-child(even) {
+          background-color: rgb(255,255,255,0.5);
+        }
+        #t01 tr:nth-child(odd) {
+         background-color: rgba(165, 154, 154, 0.431);;
+        }
+        th, td {
+          padding: 15px;
+          text-align: left;
+        }
+     
+        #t01 th {
+          background-color: black;
+          color: white;
+        }
     </style>
 </head>
 <body style = "background-color: #172238;">
@@ -181,90 +216,90 @@
           <ul class="main-menu">
             <li><a href="{%url 'newapp:home' %}">Home</a></li>
           </ul>
+          <ul class="main-menu">
+            <li><a href="{%url 'newapp:finalhistory' %}">History</a></li>
+          </ul>
         </nav>
     </header>
 
-    <section class="section contact"  >
-        <div class="container" >
-        <div style = "  margin-top :10%;">
-        <h1 style = "  color :white ;" align="center">Detected key points from the student's answer </h1>
+    <section class="section contact" >
+      <div class="container" style =" background-color:rgb(0,0,0,0.4)" >
+        <div style = "  margin-top :8.5%;">
+          <br>
+          <br>
+        <h1 style = "  color :white ; text-decoration: underline;     " align="center">Mark Prediction</h1>
         <br>
-        
-        <br><br>
-
-        <div class="row">
-            <div class="column" style="background-color:rgb(119,136,153,0.4);">
-                <table>
-                    <h1 style = "  color :white ;" align="center">Keys entered:</h1>
+         <div class="row" style="height:auto;border-bottom:3px solid orange;padding-bottom: 5%;" align="center">
+            <div class="column" style="display:table">
+                <table id="t01" align='right'>
+                    <th><h1 style = "  color :orange ;" align="center">Keywords</h1></th>
                 {% for key in keys %}
                     <tr>
-                        <td style = "  color :white ;" >{{key}}</td>
+                        <td  >{{key}}</td>
                     </tr>
                 {% endfor %}
                 </table>
             </div>
-            <div class="column" style="background-color:rgb(112,128,144,0.4);">
-                <table>
-                    <h1 style = "  color :white ;" align="center">Detected Keys:</h1>
+           
+            <div class="column"style="display:table" >
+                <table id="t01"  align='left'>
+                   <th><h1 style = "  color :orange ;" align="center">Detected words</h1></th> 
                     {% for d in detect %}
                     <tr>
-                        <td style = "  color :white ;">{{ d }}</td>
+                        <td >{{ d }}</td>
                     </tr>
                     {% endfor %}
                     </table>
-
+                    
               </div>
-          </div> 
-        <br><br>
-            <h1 style = "  color :white ;" align="center">The Answer sheet :</h1>
+              <br>
+              <br>
+              <br>
+  
+              
+        </div>
+        
+    <div >
+           <br>
+           <br>
+            <h1 style = "  color :white ;" align="center"> Answer sheet </h1>
+            <br>
+            <br>
             <figure align="center">
-            <img id="myImg" src = "{{ file }}"  style="width:25%;height:auto;" alt ="Answer Sheet">
+            <img id="myImg" src = "{{ file }}"  style="width:50%;height:auto;" alt ="Answer Sheet">
             <figcaption style="color:white;">Click the pic to view full sheet</figcaption>
             </figure>
             <!-- The Modal -->
-
-           
-        
-
-            
-
-            
-
             <div id="myModal" class="modal">
               <span class="close">&times;</span>
               <img class="modal-content" id="img01">
-              <div id="caption"></div>
             </div>
           <p style="line-height: 2.0;"></p>  
           <br><br> 
-          <h1 style = "  color :white ; text-align: center;">Result :</h1>
-          <div class="boxed" style="background-color: black; width: 1000px; border: 15px solid orange; padding: 50px; margin: 20px;">
+        </div>
+          
+          <div class="boxed" style="background-color: black; width: 1000px; border: 15px solid orange; padding: 50px; margin: auto;">
           <h2 style = "  color :white ; text-align: center;"> Out of {{tc}} key words , {{kc}} are detected .</h2>
           <h2 style = "  color :white ; text-align: center;"> Our predicted mark is {{ mark }} out of {{ total }}. </h2>
-    
-
-    </div>
-    <form action='/history/' method='POST' class="form" enctype="multipart/form-data">
-      <br><br> 
-        {% csrf_token %}
-        <label  class="form-label" for="customFile" ><h3 style="font-size: 25px; text-align: center; color:white;"><b>Enter the Final Marks for the Answer :<b></h3></label>
-            
-            <input type="number" id="totmarks" name="totmarks" size="4"><br>
-             
-             <br>
-          <div align="center">
-            <span style="display: inline-block; width: 70px; height: 52px;" align="center">
-              <input type='submit' class="button" bgcolor="orange" style="width:250px">
-              <button type="button" onclick="location.href='/finalhistory'" class="button" style="width:250px">History</button>
-            </span>
           </div>
-
-             
-    </form>
-
-    </div>
-    </div>
-    </section>
+          <form action='/history/' method='POST' class="form" enctype="multipart/form-data" style ="background-color:rgb(0,0,0,0); width:50%;margin-left: 27%;" align="center">
+            <br><br> 
+              {% csrf_token %}
+              <label  class="form-label" for="customFile" style="display: block;" ><h3 style="font-size: 25px; text-align: center; color:white;" ><b >Enter the Final Marks for the Answer :<b></h3></label>
+                  
+                  <input type="number" id="totmarks" name="totmarks" align="center" style="width:75%;" size="4"><br>
+                  
+                  <br>
+                  <div class="container-one">
+                    <div class="center">
+                    <input type='submit' class="button" bgcolor="orange" style="width:250px; float:left;">
+                   </div>
+                  </div>
+                  
+          </form>
+        </div>
+      </div>
+      </section>
     <script>
       var modal = document.getElementById("myModal");
       var img = document.getElementById("myImg");
