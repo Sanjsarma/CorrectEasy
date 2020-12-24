@@ -9,7 +9,7 @@
   <meta name="author" content="">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-  <title>Correction app</title>
+  <title>Mark list</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
@@ -52,12 +52,19 @@
           table {
               width:80%;
             }
-            table, th, td {
+            table, td {
               border: 1px solid black;
               border-collapse: collapse;
               color: Black;
 
             }
+            th {
+            border: 1px;
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+            border-collapse: collapse;
+            color: Black;
+           }
             th, td {
               padding: 15px;
               text-align: left;
@@ -71,8 +78,11 @@
             #t01 th {
               background-color: black;
               color: white;
+              border-left-color: black;
             }
-
+            #t01 th:last-child{
+            border-right-color: black;
+           }
             .wrapper {
               text-align: center;
             }

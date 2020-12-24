@@ -113,11 +113,18 @@
           table {
             width:100%;
           }
-          table, th, td {
+          table, td {
             border: 1px solid black;
             border-collapse: collapse;
             color: Black;
 
+          }
+           th {
+            border: 1px;
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+            border-collapse: collapse;
+            color: Black;
           }
           th, td {
             padding: 15px;
@@ -132,6 +139,10 @@
           #t01 th {
             background-color: black;
             color: white;
+            border-left-color: black;
+          }
+          #t01 th:last-child{
+            border-right-color: black;
           }
           .wrapper {
             text-align: center;
