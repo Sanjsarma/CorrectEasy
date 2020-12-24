@@ -10,13 +10,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
     <title>CorrectEasy</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS-->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
 
-    <!-- Additional CSS Files -->
+    <!-- Additional CSS Files-->
     <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/templatemo-grad-school.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/owl.css'%}">
@@ -25,9 +24,6 @@
   </head>
 
 <body>
-
-
-  <!--header-->
   <header class="main-header clearfix" role="header">
     <div class="logo">
       <a href="#"><em>Correct</em>Easy</a>
@@ -38,21 +34,12 @@
         <li><a href="#section1">Home</a></li>
         <li class="has-submenu"><a href="#section2">About Us</a>
           <ul class="sub-menu">
-           <!-- <li><a href="#section2">Who we are?</a></li>
-            <li><a href="#section3">What we do?</a></li> -->
             <li><a href="#section3">How it works?</a></li>
-        <!--    <li><a href="https://templatemo.com/about" rel="sponsored" class="external">External URL</a></li> -->
           </ul>
         </li>
-     <!--   <li><a href="#section4">Courses</a></li>
-         <li><a href="#section5">Video</a></li> -->
-      <!--  <li><a href="#section6">Contact</a></li>
-        <li><a href="https://templatemo.com" class="external">External</a></li>  -->
       </ul>
     </nav>
   </header>
-
-  <!-- ***** Main Banner Area Start ***** -->
   <section class="section main-banner" id="top" data-section="section1">
       <video autoplay muted loop id="bg-video">
           <source src="{% static 'assets/images/course-video.mp4'%}" type="video/mp4" />
@@ -61,83 +48,27 @@
       <div class="video-overlay header-text">
           <div class="caption">
               <h6>CorrectEasy Application!</h6>
-              <!--<h2><em>Your</em> Classroom</h2> -->
               <div class="main-button">
                   <a href="{%url 'newapp:index' %}">Start using!</a></div>
               </div>
           </div>
       </div>
   </section>
-  <!-- ***** Main Banner Area End ***** -->
-
-<!--
-    <section class="features">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-12">
-          <div class="features-post">
-            <div class="features-content">
-              <div class="content-show">
-                <h4><i class="fa fa-pencil"></i>All Courses</h4>
-              </div>
-              <div class="content-hide">
-                <p>Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet. Donec maximus elementum ex. Cras convallis ex rhoncus, laoreet libero eu, vehicula libero.</p>
-                <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p>
-                <div class="scroll-to-section"><a href="#section2">More Info.</a></div>
-            </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-12">
-          <div class="features-post second-features">
-            <div class="features-content">
-              <div class="content-show">
-                <h4><i class="fa fa-graduation-cap"></i>Virtual Class</h4>
-              </div>
-              <div class="content-hide">
-                <p>Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet. Donec maximus elementum ex. Cras convallis ex rhoncus, laoreet libero eu, vehicula libero.</p>
-                <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p>
-                <div class="scroll-to-section"><a href="#section3">Details</a></div>
-            </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-12">
-          <div class="features-post third-features">
-            <div class="features-content">
-              <div class="content-show">
-                <h4><i class="fa fa-book"></i>Real Meeting</h4>
-              </div>
-              <div class="content-hide">
-                <p>Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet. Donec maximus elementum ex. Cras convallis ex rhoncus, laoreet libero eu, vehicula libero.</p>
-                <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p>
-                <div class="scroll-to-section"><a href="#section4">Read More</a></div>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  -->
   <section class="section coming-soon" data-section="section2">
     <div class="container">
       <div class="row">
         <div class="col-md-7 col-xs-12">
           <div class="continer centerIt">
             <div>
-
               <h1 style="color:#FC3">Welcome to CorrectEasy</h1>
               <h5 style="color:white">CorrectEasy is an Django appplication which uses Google's Vision API to analyze images.</h5>
               <h6 style="color:white">CorrectEasy makes it easier for teachers to calculate the marks of each question . The teacher simply needs to upload the key words of the answer along with the image of the students answer. We will evaluate the answer and predict an approximate marks that could be given to the students.</h6>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
-
 
   <section class="section why-us" data-section="section3">
     <div class="container">
@@ -202,8 +133,6 @@
           <div class="left-content">
             <span>Try it out yourself!</span>
             <h4>Watch this short video which demonstrates <em>how to use</em> CorrectEasy</h4>
-            <!--<p>You are NOT allowed to redistribute this template ZIP file on any template collection website. However, you can use this template to convert into a specific theme for any kind of CMS platform such as WordPress. You may <a rel="nofollow" href="https://templatemo.com/contact" target="_parent">contact TemplateMo</a> for details.
-            <br><br>Suspendisse tincidunt, magna ut finibus rutrum, libero dolor euismod odio, nec interdum quam felis non ante.</p>-->
             <div class="main-button"><a rel="nofollow" href="https://fb.com/templatemo" target="_parent">Video URL</a></div>
           </div>
         </div>
@@ -220,57 +149,6 @@
       </div>
     </div>
   </section>
-
-
-<!--
-  <section class="section coming-soon" data-section="section3">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-7 col-xs-12">
-          <div class="continer centerIt">
-            <div class>
-
-              <h1 style="color:#FC3">Welcome to Correct Easy</h1></a>
-              <h2 style="color:white">Correct Easy is an django appplication which uses google's vision API to analyze images.</h2>
-
-            </div>
-          </div>
-        </div>
-        <div class="col-md-5">
-          <div class="right-content">
-            <div class="top-content">
-              <h6>Register your free account and <em>get immediate</em> access to online courses</h6>
-            </div>
-            <form id="contact" action="" method="get">
-              <div class="row">
-                <div class="col-md-12">
-                  <fieldset>
-                    <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="">
-                  </fieldset>
-                </div>
-                <div class="col-md-12">
-                  <fieldset>
-                    <input name="email" type="text" class="form-control" id="email" placeholder="Your Email" required="">
-                  </fieldset>
-                </div>
-                <div class="col-md-12">
-                  <fieldset>
-                    <input name="phone-number" type="text" class="form-control" id="phone-number" placeholder="Your Phone Number" required="">
-                  </fieldset>
-                </div>
-                <div class="col-md-12">
-                  <fieldset>
-                    <button type="submit" id="form-submit" class="button">Get it now</button>
-                  </fieldset>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
--->
   <section class="section courses" data-section="section4">
     <div class="container-fluid">
       <div class="row">
@@ -285,12 +163,6 @@
             <div class="down-content">
               <h4>Label Detection</h4>
               <p>Provides generalized labels for an image. Returns a textual description, confidence score, and topicality rating for each label. Confidence level is the level of confidence by the detection algorithm that the image contains a particular label.</p>
-             <!-- <div class="author-image">
-                <img src="{% static 'assets/images/author-01.png'%}" alt="Author 1">
-              </div>
-              <div class="text-button-pay">
-                <a href="#">Pay <i class="fa fa-angle-double-right"></i></a>
-              </div>  -->
             </div>
           </div>
           <div class="item">
@@ -298,12 +170,6 @@
             <div class="down-content">
               <h4>Text Recognition</h4>
               <p>Optical character recognition for an image, text recognition and conversion to machine-coded text. Identifies and extracts UTF-8 text in an image. Works with currently supported languages.         </p>
-         <!--     <div class="author-image">
-                <img src="{% static 'assets/images/author-02.png'%}" alt="Author 2">
-              </div>
-              <div class="text-button-free">
-                <a href="#">Free <i class="fa fa-angle-double-right"></i></a>
-              </div>-->
             </div>
           </div>
           <div class="item">
@@ -311,12 +177,6 @@
             <div class="down-content">
               <h4>Handwriting Recognition</h4>
               <p>CorrectEasy detects handwritten text. Optimized for dense areas of text in images that contain handwriting.Works with different languages and gives extremely fast and highly accurate results.</p>
-           <!--   <div class="author-image">
-                <img src="{% static 'assets/images/author-03.png'%}" alt="Author 3">
-              </div>
-              <div class="text-button-pay">
-                <a href="#">Pay <i class="fa fa-angle-double-right"></i></a>
-              </div>  -->
             </div>
           </div>
          <div class="item">
@@ -324,12 +184,6 @@
             <div class="down-content">
               <h4>Crop Hint Recognition</h4>
               <p>Provide upto 16 image ratio values for an image.</p> 
-         <!--     <div class="author-image">
-                <img src="{% static 'assets/images/author-04.png'%}" alt="Author 4">
-              </div>
-              <div class="text-button-free">
-                <a href="#">Free <i class="fa fa-angle-double-right"></i></a>
-              </div>   -->
             </div>
            </div>
           <div class="item">
@@ -337,12 +191,6 @@
             <div class="down-content">
               <h4>Image properties</h4>
               <p>Returns dominant colors in an image. Each color is represented in the RGBA color space, has a confidence score, and displays the fraction of pixels occupied by the color [0, 1].</p>
-          <!--    <div class="author-image">
-                <img src="{% static 'assets/images/author-05.png'%}" alt="">
-              </div>
-             <div class="text-button-pay">
-                <a href="#">Pay <i class="fa fa-angle-double-right"></i></a>
-              </div> -->
             </div>
           </div>
           <div class="item">
@@ -350,12 +198,6 @@
             <div class="down-content">
               <h4>Dense Text Recognition</h4>
               <p>Optical character recognition (OCR) for a file (PDF/TIFF) or dense text image; dense text recognition and conversion to machine-coded text.</p>
-          <!--    <div class="author-image">
-                <img src="{% static 'assets/images/author-01.png'%}" alt="">
-              </div>
-              <div class="text-button-free">
-                <a href="#">Free <i class="fa fa-angle-double-right"></i></a>
-              </div> -->
             </div>
           </div>
           <div class="item">
@@ -363,100 +205,14 @@
             <div class="down-content">
               <h4>Math equation recognition</h4>
               <p>Detects math equations and formulae.Take images of your calculations, equations, chemical formulae and get instant results.</p>
-           <!--   <div class="author-image">
-                <img src="{% static 'assets/images/author-02.png'%}" alt="">
-              </div>
-              <div class="text-button-free">
-                <a href="#">Free <i class="fa fa-angle-double-right"></i></a>
-              </div> -->
             </div>
           </div>
-
-    <!--      <div class="item">
-            <img src="{% static 'assets/images/courses-03.jpg'%}" alt="">
-            <div class="down-content">
-              <h4>Learn HTML CSS</h4>
-              <p>You can get free images and videos for your websites by visiting Unsplash, Pixabay, and Pexels.</p>
-              <div class="author-image">
-                <img src="{% static 'assets/images/author-03.png'%}" alt="">
-              </div>
-              <div class="text-button-pay">
-                <a href="#">Pay <i class="fa fa-angle-double-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="{% static 'assets/images/courses-04.jpg'%}" alt="">
-            <div class="down-content">
-              <h4>Social Media</h4>
-              <p>Pellentesque ultricies diam magna, auctor cursus lectus pretium nec. Maecenas finibus lobortis enim.</p>
-              <div class="author-image">
-                <img src="{% static 'assets/images/author-04.png'%}" alt="">
-              </div>
-              <div class="text-button-pay">
-                <a href="#">Pay <i class="fa fa-angle-double-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="{% static 'assets/images/courses-05.jpg'%}" alt="">
-            <div class="down-content">
-              <h4>Digital Arts</h4>
-              <p>Quisque cursus augue ut velit dictum, quis volutpat enim blandit. Maecenas a lectus ac ipsum porta.</p>
-              <div class="author-image">
-                <img src="{% static 'assets/images/author-05.png'%}" alt="">
-              </div>
-              <div class="text-button-free">
-                <a href="#">Free <i class="fa fa-angle-double-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="{% static 'assets/images/courses-01.jpg'%}" alt="">
-            <div class="down-content">
-              <h4>Media Streaming</h4>
-              <p>Pellentesque ultricies diam magna, auctor cursus lectus pretium nec. Maecenas finibus lobortis enim.</p>
-              <div class="author-image">
-                <img src="{% static 'assets/images/author-01.png'%}" alt="">
-              </div>
-              <div class="text-button-pay">
-                <a href="#">Pay <i class="fa fa-angle-double-right"></i></a>
-              </div>
-            </div> -->
           </div>
         </div>
       </div>
     </div>
     </div>
   </section>
-
-<!--
-  <section class="section video" data-section="section5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 align-self-center">
-          <div class="left-content">
-            <span>Try it out yourself!</span>
-            <h4>Watch this short video which demonstrates on <em>how to use</em> Correct Easy</h4> -->
-        <!--    <p>You are NOT allowed to redistribute this template ZIP file on any template collection website. However, you can use this template to convert into a specific theme for any kind of CMS platform such as WordPress. You may <a rel="nofollow" href="https://templatemo.com/contact" target="_parent">contact TemplateMo</a> for details.
-            <br><br>Suspendisse tincidunt, magna ut finibus rutrum, libero dolor euismod odio, nec interdum quam felis non ante.</p>
-            <div class="main-button"><a rel="nofollow" href="https://fb.com/templatemo" target="_parent">External URL</a></div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <article class="video-item">
-            <div class="video-caption">
-              <h4>Demo of Correct Easy</h4>
-            </div>
-            <figure>
-              <a href="https://www.youtube.com/watch?v=r9LtOG6pNUw" class="play"><img src="{% static 'assets/images/main-thumb.png'%}"></a>
-            </figure>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>   -->
-
   <section class="section contact" data-section="section6">
     <div class="container">
       <div class="row">
@@ -466,10 +222,6 @@
           </div>
         </div>
         <div class="col-md-6">
-
-        <!-- Do you need a working HTML contact-form script?
-
-                    Please visit https://templatemo.com/contact page -->
 
           <form id="contact" action="" method="post">
             <div class="row">
@@ -496,14 +248,6 @@
             </div>
           </form>
         </div>
-  <!--     <div class="col-md-6">
-          <div id="map">
-            <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="422px" frameborder="0" style="border:0" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>-->
   <div class="col-md-5">
     <div class="right-content">
       <div class="top-content">
@@ -535,11 +279,7 @@
       </form>
     </div>
   </div>
-
 </div>
-
-
-
 </div>
 </section>
 
@@ -553,8 +293,6 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
     <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
 
@@ -566,7 +304,6 @@
     <script src="{% static 'assets/js/slick-slider.js'%}"></script>
     <script src="{% static 'assets/js/custom.js'%}"></script>
     <script>
-        //according to loftblog tut
         $('.nav li:first').addClass('active');
 
         var showSection = function showSection(section, isAnimate) {
