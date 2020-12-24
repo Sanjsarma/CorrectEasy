@@ -91,14 +91,16 @@
             <th style="width:30%">Name </th>
             <th style="width:10%">Roll Number</th>
             <th style="width:10%">Class</th>
-            <th style="width:30%">Total Marks Given by teacher</th>
+            <th style="width:30%">Total Marks Recieved </th>
+            <th style="width:10%">Total Marks</th>
         </tr>
         {% for elements in data %}
         <tr>
             <td>{{elements.name}}</td>
             <td>{{elements.rno}}</td>
             <td>{{elements.clname}} </td>
-            <td>{{elements.tmarks}}</td>
+            <td>{{elements.totmarks}}</td>
+            <td>{{elements.fullmarks}}</td>
         </tr>
         {% endfor %}
     </table>

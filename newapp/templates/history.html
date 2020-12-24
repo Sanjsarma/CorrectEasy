@@ -178,8 +178,10 @@
             <th>Name </th>
             <th>Roll Number</th>
             <th>Class</th>
+            <th>Question no.</th>
             <th>Marks Given by teacher</th>
             <th>Marks Predicted</th>
+            <th>Total marks</th>
             <th>Answer picture</th>
         </tr>
         {% for elements in data %}
@@ -187,8 +189,10 @@
             <td>{{elements.name}}</td>
             <td>{{elements.rno}}</td>
             <td>{{elements.clname}} </td>
+            <td>{{elements.qno}}</td>
             <td>{{elements.tmarks}}</td>
             <td>{{elements.marks}}</td>
+            <td>{{elements.totalmarks}}</td>
             <td><img id="{{ elements.pk }}" src = "{{ elements.imageurl }}"  style='width:128px;height:128px;' alt ="Answer Sheet"></td>
 
         </tr>
