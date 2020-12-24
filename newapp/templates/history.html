@@ -25,6 +25,21 @@
           margin-top: 100px;
           padding: 1200px;
         }
+        button {
+          color: white;
+          display: inline-block;
+          background: orange;/*-webkit-linear-gradient(top, #f9f9f9, #e3e3e3)*/
+          border: 1px solid #999;
+          border-radius: 3px;
+          padding: 5px 8px;
+          outline: none;
+          white-space: nowrap;
+         -webkit-user-select: none;
+          cursor: pointer;
+          width: 250px;
+          font-weight: 700;
+          font-size: 10pt;
+        }
         input[type=submit] {
           background-color: #f5a425 !important;
           font-size: 20px !important;
@@ -140,13 +155,20 @@
               background-color: black;
               color: white;
             }
+            .wrapper {
+              text-align: center;
+            }
+          
+            .button {
+              top: 50%;
+            }
   </style>
 
 </head>
 <body  style = "background-color: #172238;">
     <header class="main-header clearfix" role="header">
         <div class="logo">
-          <a href="#"><em>Correct</em>Easy</a>
+          <a href="{%url 'newapp:home' %}"><em>Correct</em>Easy</a>
         </div>
         <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
         <nav id="menu" class="main-nav" role="navigation">
@@ -171,7 +193,11 @@
       <section class="section contact"  >
         <div class="container" >
         <div style = "  margin-top :10%; color: white;">
-            <button type="button" onclick="location.href='/marklist'" class="button">Marklist</button>
+          <h1 style = "  color :white ;" align="center">History Page</h1>
+          <br><br>
+          <div class="wrapper">
+            <button type="button" onclick="location.href='/marklist'" class="button">Go to Marklist</button>
+          </div>
             <br><br>
     <table id="t01">
         <tr>

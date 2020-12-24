@@ -26,9 +26,9 @@ Email: ahole@disroot.org
 
     <style>
         button {
-            color: black;
+            color: white;
             display: inline-block;
-            background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+            background: orange; /*-webkit-linear-gradient(top, #f9f9f9, #e3e3e3);*/
             border: 1px solid #999;
             border-radius: 3px;
             padding: 5px 8px;
@@ -36,9 +36,10 @@ Email: ahole@disroot.org
             white-space: nowrap;
            -webkit-user-select: none;
             cursor: pointer;
-            text-shadow: 1px 1px #fff;
             font-weight: 700;
             font-size: 10pt;
+            
+            
         }
         .button:active {
             background-color: #3e8e41;
@@ -177,6 +178,7 @@ Email: ahole@disroot.org
             width: 50%;
             padding: 10px;
             height: 300px; /* Should be removed. Only for demonstration */
+            border-right: 1px solid black; 
         }
     </style>
 </head>
@@ -184,7 +186,7 @@ Email: ahole@disroot.org
 
     <header class="main-header clearfix" role="header">
         <div class="logo">
-          <a href="{%url 'newapp:index' %}"><em>Correct</em>Easy</a>
+          <a href="{%url 'newapp:home' %}"><em>Correct</em>Easy</a>
         </div>
         <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
         <nav id="menu" class="main-nav" role="navigation">
@@ -202,48 +204,47 @@ Email: ahole@disroot.org
     <section class="section contact"  >
         <div class="container" >
         <div style = "  margin-top :10%;">
-        <h1 style = "  color :white ;">Detected key points from the student's answer </h1>
+        <h1 style = "  color :white ;" align="center">Detected key points from the student's answer </h1>
         <br>
-        <button type="button" onclick="location.href='/finalhistory'" class="button">History</button>
+        
         <br><br>
 
         <div class="row">
-            <div class="column" style="background-color:#aaa;">
+            <div class="column" style="background-color:rgb(119,136,153,0.4);">
                 <table>
-                    <h1 style = "  color :white ;">Keys entered:</h1>
+                    <h1 style = "  color :white ;" align="center">Keys entered:</h1>
                 {% for key in keys %}
                     <tr>
-                        <td style = "  color :white ;">{{key}}</td>
+                        <td style = "  color :white ;" >{{key}}</td>
                     </tr>
                 {% endfor %}
                 </table>
             </div>
-            <div class="column" style="background-color:#bbb;">
+            <div class="column" style="background-color:rgb(112,128,144,0.4);">
                 <table>
-                    <h1 style = "  color :white ;">Detected :</h1>
+                    <h1 style = "  color :white ;" align="center">Detected Keys:</h1>
                     {% for d in detect %}
                     <tr>
                         <td style = "  color :white ;">{{ d }}</td>
                     </tr>
                     {% endfor %}
                     </table>
-            </div>
-        </div> 
-        <br>
-
-
-            <h1 style = "  color :white ;">The answer :</h1>
-
-            
-
-            <img id="myImg" src = "{{ file }}"  style='width:128px;height:128px;' alt ="Answer Sheet">
+              </div>
+          </div> 
+        <br><br>
+            <h1 style = "  color :white ;" align="center">The Answer sheet :</h1>
+            <figure align="center">
+            <img id="myImg" src = "{{ file }}"  style="width:25%;height:auto;" alt ="Answer Sheet">
+            <figcaption style="color:white;">Click the pic to view full sheet</figcaption>
+            </figure>
             <!-- The Modal -->
             <div id="myModal" class="modal">
               <span class="close">&times;</span>
               <img class="modal-content" id="img01">
               <div id="caption"></div>
             </div>
-          <p style="line-height: 2.0;"></p>   
+          <p style="line-height: 2.0;"></p>  
+          <br><br> 
           <h1 style = "  color :white ; text-align: center;">Result :</h1>
           <div class="boxed" style="background-color: black; width: 1000px; border: 15px solid orange; padding: 50px; margin: 20px;">
           <h2 style = "  color :white ; text-align: center;"> Out of {{tc}} key words , {{kc}} are detected .</h2>
@@ -252,13 +253,21 @@ Email: ahole@disroot.org
 
     </div>
     <form action='/history/' method='POST' class="form" enctype="multipart/form-data">
+      <br><br> 
         {% csrf_token %}
-        <label  class="form-label" for="customFile" ><h3 style="font-size: 25px; text-align: center; color:white;"><b>The Final Marks for the Question :<b></h3></label>
+        <label  class="form-label" for="customFile" ><h3 style="font-size: 25px; text-align: center; color:white;"><b>Enter the Final Marks for the Answer :<b></h3></label>
             
             <input type="number" id="totmarks" name="totmarks" size="4"><br>
              
              <br>
-             <input type='submit' class="button" bgcolor="orange">
+          <div align="center">
+            <span style="display: inline-block; width: 70px; height: 52px;" align="center">
+              <input type='submit' class="button" bgcolor="orange" style="width:250px">
+              <button type="button" onclick="location.href='/finalhistory'" class="button" style="width:250px">History</button>
+            </span>
+          </div>
+
+             
     </form>
 
     </div>
